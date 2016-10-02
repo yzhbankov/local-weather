@@ -7,3 +7,9 @@ body{
     background-color: white;
     text-align: center;
 }
+.temperatureSwitcher{
+    text-align: left;
+}
+.temperature {
+    text-align: right;
+}
