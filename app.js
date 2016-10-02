@@ -9,7 +9,8 @@ $.ajax({
     dataType: 'jsonp',
     success: function (response) {
         $(".temperature").html(response.currently.temperature.toFixed(1));
-        $(".temperatureSwitcher").html("F");
+        $(".temperatureSwitcher").html("&#176;F");
+        $(".temperatureSwitcher").attr("scale", "far");
         $(".sky").html(response.currently.icon);
         var windB = response.currently.windBearing;
         $(".wind").html((response.currently.windSpeed * 1609.34 / 3600).toFixed(1) + " m/sec, " + windDirection(windB));
@@ -20,11 +21,13 @@ var temperatureSwitcher = document.getElementsByClassName("temperatureSwitcher")
 
 temperatureSwitcher[0].addEventListener("click", function () {
     var temperature = Number($(".temperature").text());
-    if ($(".temperatureSwitcher").text() == "F") {
-        $(".temperatureSwitcher").html("C");
+    if ($(".temperatureSwitcher").attr("scale") == "far") {
+        $(".temperatureSwitcher").html("&#176;C");
+        $(".temperatureSwitcher").attr("scale", "cel");
         $(".temperature").html(((temperature - 32) * 5 / 9).toFixed(1));
     } else {
-        $(".temperatureSwitcher").html("F");
+        $(".temperatureSwitcher").html("&#176;F");
+        $(".temperatureSwitcher").attr("scale", "far");
         $(".temperature").html((temperature * 1.8 + 32).toFixed(1));
     }
 });
