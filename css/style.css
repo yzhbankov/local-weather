@@ -1,0 +1,9 @@
+body{
+    background-color: black;
+}
+
+.weather{
+    margin-top: 100px;
+    background-color: white;
+    text-align: center;
+}
