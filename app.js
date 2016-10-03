@@ -12,6 +12,7 @@ $.ajax({
         $(".temperatureSwitcher").html("&#176;F");
         $(".temperatureSwitcher").attr("scale", "far");
         $(".sky").html(response.currently.icon);
+        skyDeterminator(response.currently.icon);
         var windB = response.currently.windBearing;
         $(".wind").html((response.currently.windSpeed * 1609.34 / 3600).toFixed(1) + " m/sec, " + windDirection(windB));
     }
@@ -61,3 +62,26 @@ function windDirection(windB) {
     return windDirection;
 }
 
+function skyDeterminator(sky){
+    if (sky=="clear-day"){
+        $("body").css("background", "url('img/clear-day.jpg')");
+    } else if (sky == "clear-night") {
+        $('body').css('background', 'url("img/clear-night.jpg") no-repeat center center fixed');
+    } else if (sky == "rain") {
+        $("body").css("background-image", "url('img/rain.jpg')");
+    } else if (sky == "snow") {
+        $("body").css("background-image", "url('img/snow.png')");
+    } else if (sky == "sleet") {
+        $("body").css("background-image", "url('img/sleet.jpg')");
+    } else if (sky == "wind") {
+        $("body").css("background-image", "url('img/wind.jpg')");
+    } else if (sky == "fog") {
+        $("body").css("background-image", "url('img/fog.jpg')");
+    } else if (sky == "cloudy") {
+        $("body").css("background-image", "url('img/cloud.jpg')");
+    } else if (sky == "partly-cloudy-day") {
+        $("body").css("background-image", "url('img/partly-cloudy-day.jpg')");
+    } else if (sky == "partly-cloudy-night") {
+        $("body").css("background-image", "url('img/partly-cloudy-night.jpg')");
+    }
+}
