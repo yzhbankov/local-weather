@@ -68,21 +68,21 @@ function skyDeterminator(sky){
     } else if (sky == "clear-night") {
         $('body').css('background', 'url("img/clear-night.jpg") no-repeat center center fixed');
     } else if (sky == "rain") {
-        $("body").css("background-image", "url('img/rain.jpg')  no-repeat center center fixed");
+        $("body").css("background", "url('img/rain.jpg')  no-repeat center center fixed");
     } else if (sky == "snow") {
-        $("body").css("background-image", "url('img/snow.png')  no-repeat center center fixed");
+        $("body").css("background", "url('img/snow.png')  no-repeat center center fixed");
     } else if (sky == "sleet") {
-        $("body").css("background-image", "url('img/sleet.jpg')  no-repeat center center fixed");
+        $("body").css("background", "url('img/sleet.jpg')  no-repeat center center fixed");
     } else if (sky == "wind") {
-        $("body").css("background-image", "url('img/wind.jpg')  no-repeat center center fixed");
+        $("body").css("background", "url('img/wind.jpg')  no-repeat center center fixed");
     } else if (sky == "fog") {
-        $("body").css("background-image", "url('img/fog.jpg')  no-repeat center center fixed");
+        $("body").css("background", "url('img/fog.jpg')  no-repeat center center fixed");
     } else if (sky == "cloudy") {
-        $("body").css("background-image", "url('img/cloud.jpg')  no-repeat center center fixed");
+        $("body").css("background", "url('img/cloud.jpg')  no-repeat center center fixed");
     } else if (sky == "partly-cloudy-day") {
-        $("body").css("background-image", "url('img/partly-cloudy-day.jpg')  no-repeat center center fixed");
+        $("body").css("background", "url('img/partly-cloudy-day.jpg')  no-repeat center center fixed");
     } else if (sky == "partly-cloudy-night") {
-        $("body").css("background-image", "url('img/partly-cloudy-night.jpg')  no-repeat center center fixed");
+        $("body").css("background", "url('img/partly-cloudy-night.jpg')  no-repeat center center fixed");
     }
     $('body').css('background-size', '100%');
     $('body').css('background-size', 'cover');
