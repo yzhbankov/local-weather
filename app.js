@@ -1,23 +1,25 @@
 /**
  * Created by Iaroslav Zhbankov on 02.10.2016.
  */
+ymaps.ready(init);
 
-$(".city").html(YMaps.location.city + ", " + YMaps.location.country);
+function init() {
+    $(".city").html(ymaps.geolocation.city + ", " + ymaps.geolocation.country);
 
-$.ajax({
-    url: "https://api.darksky.net/forecast/5dd4dc7ef0ce4021dd39c00c60bf98f4/" + YMaps.location.latitude.toString() + "," + YMaps.location.longitude.toString(),
-    dataType: 'jsonp',
-    success: function (response) {
-        $(".temperature").html(response.currently.temperature.toFixed(1));
-        $(".temperatureSwitcher").html("&#176;F");
-        $(".temperatureSwitcher").attr("scale", "far");
-        $(".sky").html(response.currently.icon);
-        skyDeterminator(response.currently.icon);
-        var windB = response.currently.windBearing;
-        $(".wind").html((response.currently.windSpeed * 1609.34 / 3600).toFixed(1) + " m/sec, " + windDirection(windB));
-    }
-});
-
+    $.ajax({
+        url: "https://api.darksky.net/forecast/5dd4dc7ef0ce4021dd39c00c60bf98f4/" + ymaps.geolocation.latitude.toString() + "," + ymaps.geolocation.longitude.toString(),
+        dataType: 'jsonp',
+        success: function (response) {
+            $(".temperature").html(response.currently.temperature.toFixed(1));
+            $(".temperatureSwitcher").html("&#176;F");
+            $(".temperatureSwitcher").attr("scale", "far");
+            $(".sky").html(response.currently.icon);
+            skyDeterminator(response.currently.icon);
+            var windB = response.currently.windBearing;
+            $(".wind").html((response.currently.windSpeed * 1609.34 / 3600).toFixed(1) + " m/sec, " + windDirection(windB));
+        }
+    });
+}
 var temperatureSwitcher = document.getElementsByClassName("temperatureSwitcher");
 
 temperatureSwitcher[0].addEventListener("click", function () {
@@ -62,8 +64,8 @@ function windDirection(windB) {
     return windDirection;
 }
 
-function skyDeterminator(sky){
-    if (sky=="clear-day"){
+function skyDeterminator(sky) {
+    if (sky == "clear-day") {
         $("body").css("background", "url('img/clear-day.jpg')  no-repeat center center fixed");
     } else if (sky == "clear-night") {
         $('body').css('background', 'url("img/clear-night.jpg") no-repeat center center fixed');
