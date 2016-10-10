@@ -13,7 +13,8 @@ function init() {
             $(".temperature").html(response.currently.temperature.toFixed(1));
             $(".temperatureSwitcher").html("&#176;F");
             $(".temperatureSwitcher").attr("scale", "far");
-            $(".sky").html(response.currently.icon);
+            /*$(".sky").html(response.currently.icon);*/
+            skyIconDetermination(response.currently.icon);
             skyDeterminator(response.currently.icon);
             var windB = response.currently.windBearing;
             $(".wind").html((response.currently.windSpeed * 1609.34 / 3600).toFixed(1) + " m/sec, " + windDirection(windB));
@@ -63,6 +64,37 @@ function windDirection(windB) {
     }
     return windDirection;
 }
+
+function skyIconDetermination(sky){
+    if (sky == "clear-day") {
+        $(".sky").append("<img src='img/icons/clear-day.png' width='50' height='50'>");
+    } else if (sky == "clear-night") {
+        $(".sky").append("<img src='img/icons/clear-night.png' width='50' height='50'>");
+    } else if (sky == "rain") {
+        $(".sky").append("<img src='img/icons/rain.png' width='50' height='50'>");
+    } else if (sky == "snow") {
+        $(".sky").append("<img src='img/icons/snow.png' width='50' height='50'>");
+    } else if (sky == "sleet") {
+        $(".sky").append("<img src='img/icons/sleet.png' width='50' height='50'>");
+    } else if (sky == "wind") {
+        $(".sky").append("<img src='img/icons/wind.png' width='50' height='50'>");
+    } else if (sky == "fog") {
+        $(".sky").append("<img src='img/icons/fog.png' width='50' height='50'>");
+    } else if (sky == "cloudy") {
+        $(".sky").append("<img src='img/icons/cloud.png' width='50' height='50'>");
+    } else if (sky == "partly-cloudy-day") {
+        $(".sky").append("<img src='img/icons/partly-cloudy-day.png' width='50' height='50'>");
+    } else if (sky == "partly-cloudy-night") {
+        $(".sky").append("<img src='img/icons/partly-cloudy-night.png' width='50' height='50'>");
+    } else if (sky == "thunderstorm") {
+        $(".sky").append("<img src='img/icons/thunderstorm.png' width='50' height='50'>");
+    } else if (sky == "hail") {
+        $(".sky").append("<img src='img/icons/hail.png' width='50' height='50'>");
+    }
+    /*$('body').css('background-size', '100%');
+    $('body').css('background-size', 'cover');*/
+};
+
 
 function skyDeterminator(sky) {
     if (sky == "clear-day") {
