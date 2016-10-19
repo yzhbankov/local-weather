@@ -28,7 +28,9 @@
 }
 .footer{
     text-align: center;
-    margin-top: 20%;
+    color: white;
+    margin-top: 5px;
+    font-size: x-small;
 }
 @media screen and (max-width: 740px) {
     .weather{
@@ -63,6 +65,8 @@
     }
     .footer{
         text-align: center;
-        margin-top: 65%;
+        color: white;
+        margin-top: 5px;
+        font-size: small;
     }
 }
